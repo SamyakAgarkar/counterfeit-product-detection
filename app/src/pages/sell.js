@@ -75,6 +75,26 @@ export default function BuyProduct() {
                             >
                                 <Fm className="form-signin" name="form">
 
+                                <Form.Row>
+                                        <Form.Group as={Col} controlId="2">
+                                            <Form.Label>Type</Form.Label>
+                                           
+
+                                                <Field
+                                                    tabIndex="3"
+                                                    type="text"
+                                                    placeholder="type"
+                                                    name="type"
+                                                    className="form-styling" />
+                                               
+
+                                           
+                                            <ErrorMessage name="type" />
+
+                                        </Form.Group>
+
+                                    </Form.Row>
+
                                     <Form.Row>
                                         <Form.Group as={Col} controlId="1">
                                             <Form.Label>Address </Form.Label>
@@ -97,19 +117,7 @@ export default function BuyProduct() {
                                         </Form.Group>
 
                                     </Form.Row>
-                                    <Form.Row>
-                                        <Form.Group as={Col} controlId="2">
-                                            <Form.Label>Type</Form.Label>
-                                                <Field
-                                                    tabIndex="3"
-                                                    type="text"
-                                                    placeholder="type"
-                                                    name="type"
-                                                    className="form-styling" />
-                                            <ErrorMessage name="type" />
-                                        </Form.Group>
-                                    </Form.Row>
-
+                                    
                                     <Form.Row>
                                         <Form.Group as={Col} controlId="2">
                                             <Form.Label>Product ID</Form.Label>
