@@ -40,7 +40,7 @@ const ownerOp = {
       return result;
     } catch (error) {
       console.log(error.message);
-      throw new Error('Failed to unblock seller');
+      throw new Error('Failed to transfer owner');
     }
   },
 
