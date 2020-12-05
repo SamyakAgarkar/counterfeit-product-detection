@@ -32,13 +32,16 @@ const ownerOp = {
   },
   async transferOwner(sellerPrivateKey, ownerPrivateKey) {
     try {
-      const sellerAccount = common.returnAccount(sellerPrivateKey)
+      const sellerAccount = await common.returnAccount(sellerPrivateKey)
+      // console.log(sellerAccount);
       const sellerAddress = sellerAccount.address
       const signedTransaction = await common.signTransaction(
         `transferOwnership('${sellerAddress}')`,
         ownerPrivateKey,
       );
+      
       const result = await common.sendTransaction(signedTransaction);
+      console.log(result);
       return result;
     } catch (error) {
       console.log(error.message);

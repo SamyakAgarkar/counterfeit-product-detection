@@ -64,14 +64,13 @@ const ownerController = {
       }
 
       const seller = await commonManager.checkSeller(email, 'seller');
-      const ownerPrivateKey = commonManager.getPrivateKeyByEmail(currentOwner, 'owner');
+      const ownerPrivateKey = await commonManager.getPrivateKeyByEmail(currentOwner, 'owner');
       // console.log(seller);
       // console.log(ownerPrivateKey);
       //so seller is registered next step to make him owner
-      await commonManager.updateDetails({type:'owner'},email)
-
 
       await ownerOp.transferOwner(seller.privateKey,ownerPrivateKey)
+      await commonManager.updateDetails({type:'owner'},email)
       
     }
     catch (error){
