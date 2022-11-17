@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan')
 require('dotenv').config();
 
+
 const userRouter = require('./routes/user');
 const sellerRouter = require('./routes/seller');
 const ownerRouter = require('./routes/owner');
@@ -70,6 +71,7 @@ app.use(function (err, req, res, next) {
 
 app.listen(8000, () => {
   console.log("Listening on 8000")
+  console.log(process.env.DB_HOST)
 })
 
 module.exports = app;

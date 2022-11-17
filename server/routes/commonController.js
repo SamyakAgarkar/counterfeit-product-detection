@@ -20,7 +20,10 @@ const commonController = {
 
       const response = await commonManager.getPasswordByEmail(email, type);
 
+      console.log("Response from GetPasswordByEmail: ", response)
+
       if (await argon2.verify(response, password)) {
+        console.log("Setting JWT Token")
         res.cookie('jwt', jwt.sign(email, process.env.JWT_SECRET_KEY));
 
         return res.send('Login successfully');
@@ -39,6 +42,7 @@ const commonController = {
       }
     
       const { email, password, name, details, type } = req.body;
+      //console.log("Req Body: ", req.body)
 
       if (!email || !password) {
         next(new Error('Invalid email or password'));
@@ -46,20 +50,29 @@ const commonController = {
       if (!name || !details) {
         next(new Error('Name or details not provided'));
       }
-
+      console.log("Checking Registered Email")
       await commonManager.checkEmailRegistered(email, type);      
-
+      console.log("Done")
+      console.log("Argon2 Hash")
+      
       const hash = await argon2.hash(password);
       const privateKey = await sellerOp.genKey();
-
+      console.log("Done: Passwork Has is : ", hash)
+      console.log("Store Seller Info")
+      
       await commonManager.storeSeller(email, hash, privateKey, type);
+      console.log("Done")
+      console.log("Register PK")
       
       await sellerOp.register(privateKey, name, details);
+      console.log("Done")
+      console.log("Setting JWT")
       
       res.cookie('jwt', jwt.sign(email, process.env.JWT_SECRET_KEY));
+      console.log("Done")
       res.send('Seller registered successfully');
     } catch (error) {
-      commonManager.removeAccount(email)
+      commonManager.removeAccount(req.body.email)
         .then(result => {
           next(error)
         }).catch(err => {

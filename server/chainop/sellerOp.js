@@ -12,7 +12,7 @@ const sellerOp = {
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to sell product');
     }
   },
@@ -23,10 +23,11 @@ const sellerOp = {
         `registerSeller ('${name}', '${details}')`,
         privateKey,
       );
+      console.log("Signed TX: ", signedTransaction)
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log("Register SellerOp error",error);
       throw new Error('Registration failed');
     }
   },
@@ -35,7 +36,7 @@ const sellerOp = {
     try {
       return await common.generatePrivateKey();
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('failed to generate keys');
     }
   },

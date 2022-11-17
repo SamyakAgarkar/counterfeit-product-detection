@@ -46,7 +46,7 @@ const ownerController = {
     try {
       return res.send('FUNCTION not ready yet');
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       return res.status(500).send('Failed to transfer ownership');
     }
   },
@@ -74,7 +74,7 @@ const ownerController = {
       
     }
     catch (error){
-      console.log(error.message);
+      console.log(error);
       return res.status(500).send('Failed to add owner');
     }
   }

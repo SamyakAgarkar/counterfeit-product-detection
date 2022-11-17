@@ -12,7 +12,7 @@ const ownerOp = {
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to add product');
     }
   },
@@ -26,7 +26,7 @@ const ownerOp = {
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to unblock seller');
     }
   },
@@ -44,7 +44,7 @@ const ownerOp = {
       console.log(result);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to transfer owner');
     }
   },

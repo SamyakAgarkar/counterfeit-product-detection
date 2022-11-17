@@ -10,6 +10,7 @@ const commonManager = {
       commonModel
         .get(email.trim().toLowerCase(), type.trim().toLowerCase())
         .then((response) => {
+          console.log("Response when checking registered email: ", response)
           if (response && response.length === 0) {
             return resolve(true);
           }
@@ -30,7 +31,7 @@ const commonManager = {
       return response[0];
     }
     catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw Error("Failed to check")
     }
   },
@@ -54,7 +55,7 @@ const commonManager = {
       }
       return result[0].privateKey;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to get private key');
     }
   },
@@ -63,6 +64,7 @@ const commonManager = {
       commonModel
         .get(email, type)
         .then((response) => {
+          console.log("GetPasswordByEmail: ", response)
           if (!response || response.length === 0) {
             throw new Error('email not found in user table');
           }
@@ -79,7 +81,7 @@ const commonManager = {
       await commonModel.remove(email.trim().toLowerCase())
     }
     catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw Error("Failed to remove Account")
     }
   },
@@ -88,7 +90,7 @@ const commonManager = {
       await commonModel.update(values,email)
     }
     catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw Error("Failed to update Account")
     }
   }

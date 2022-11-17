@@ -13,7 +13,7 @@ const commonOp = {
       console.log(result);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to retrieve all products');
     }
   },

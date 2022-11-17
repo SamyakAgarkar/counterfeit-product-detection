@@ -23,9 +23,10 @@ const common = {
   async generatePrivateKey() {
     try {
       const newAccount = await web3.eth.accounts.create();
+      console.log("New Account Created: ", newAccount)
       return newAccount.privateKey;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('failed to create new private key');
     }
   },
@@ -48,7 +49,7 @@ const common = {
         
         return resolve(result);
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
         return reject('Failed to call');
       }
     });
@@ -62,6 +63,8 @@ const common = {
         const contract = await this.returnContract();
 
         const myAccount = await this.returnAccount(privateKey);
+        console.log("Sign TX PK: ", privateKey)
+        console.log("Sign TX AC: ", myAccount)
         
         const transaction = {
           from: myAccount.address,
@@ -77,7 +80,7 @@ const common = {
         );
         return resolve(signedTransaction);
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
         return reject('Failed to sign');
       }
     });
@@ -91,7 +94,7 @@ const common = {
         );
         return resolve(receipt);
       } catch (error) {
-        console.log(error.message);
+        console.log("Send Transaction Failed", error);
         return reject('Failed to send transaction');
       }
     });
@@ -104,7 +107,7 @@ const common = {
         const balance = await web3.eth.getBalance(myAccount.address);
         return resolve(balance);
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
         return reject('Failed to get balance');
       }
     });

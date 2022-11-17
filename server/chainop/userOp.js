@@ -10,7 +10,7 @@ const userOp = {
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to purchase product');
     }
   },
@@ -24,7 +24,7 @@ const userOp = {
       const result = await common.sendTransaction(signedTransaction);
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       error.status = 202
       throw new Error(error);
     }
@@ -37,7 +37,7 @@ const userOp = {
       );
       return result;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
       throw new Error('Failed to fetch details of poduct');
     }
   },
