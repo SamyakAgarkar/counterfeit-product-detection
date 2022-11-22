@@ -41,7 +41,7 @@ const commonController = {
         next(new Error('no body'));
       }
     
-      const { email, password, name, details, type } = req.body;
+      const { email, password, name, details, type, privateKey } = req.body;
       //console.log("Req Body: ", req.body)
 
       if (!email || !password) {
@@ -56,7 +56,7 @@ const commonController = {
       console.log("Argon2 Hash")
       
       const hash = await argon2.hash(password);
-      const privateKey = await sellerOp.genKey();
+      // const privateKey = await sellerOp.genKey();
       console.log("Done: Passwork Has is : ", hash)
       console.log("Store Seller Info")
       

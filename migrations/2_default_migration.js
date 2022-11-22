@@ -5,7 +5,7 @@ module.exports = async function (deployer) {
   const cf = await Counterfeit.deployed()
 
   // console.log(cf)
-  cf.transferOwnership('0x98E4B74463F0a597f2C7c7aB25984dC302E04132')
+  cf.transferOwnership('0x6Bf4a835c7c1e0bBD7A22d1FF305bA02d5b7167D')
     .then(response => {
       console.log(response);
     })

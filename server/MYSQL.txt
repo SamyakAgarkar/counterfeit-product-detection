@@ -1,0 +1,3 @@
+INSERT INTO finalyearproject.users VALUES ('owner1@gmail.com','$argon2i$v=19$m=4096,t=3,p=1$oulcIvT8rCJdz7VbipyZuw$7TOwbwMrSOAGSXBKO0TtRMW63+xTVuCxmuZORVB7En4', '0x07bc921692f007227bc21af854f5f4a4ab3afc531888db887fc7cf463e685b53', 'owner');
+INSERT INTO finalyearproject.users VALUES ('seller1@gmail.com','$argon2i$v=19$m=4096,t=3,p=1$oulcIvT8rCJdz7VbipyZuw$7TOwbwMrSOAGSXBKO0TtRMW63+xTVuCxmuZORVB7En4', '0xf3bfb0df9941a19f471fbb927fcb54065a23868b6a0abad1f0a7f01b09e5c678', 'seller');
+INSERT INTO finalyearproject.users VALUES ('seller1@gmail.com','$argon2i$v=19$m=4096,t=3,p=1$oulcIvT8rCJdz7VbipyZuw$7TOwbwMrSOAGSXBKO0TtRMW63+xTVuCxmuZORVB7En4', '0x07bc921692f007227bc21af854f5f4a4ab3afc531888db887fc7cf463e685b53', 'owner');

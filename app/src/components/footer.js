@@ -66,7 +66,7 @@ function Footer() {
                 </div>
             </div>
             <div className="copyrights">
-                <Link to="/">@2020 Copyright Forge</Link>
+                <Link to="/">@2022-23 Copyright SellerCenter</Link>
             </div>
         </footer>
     )

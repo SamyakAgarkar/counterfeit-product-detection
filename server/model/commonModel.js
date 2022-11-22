@@ -23,7 +23,7 @@ class commonModel {
 
   static remove(email) {
     return new Promise((resolve, reject) => {
-      let q = `delete from users where email = '${email}')`;
+      let q = `delete from users where email = '${email}'`;
       mysql
         .query(q)
         .then((data) => resolve(data))

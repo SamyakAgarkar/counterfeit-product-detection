@@ -87,6 +87,7 @@ export default function Login() {
             const pL = {
                 email: values.emailS,
                 password: values.password1S,
+                privateKey: values.privatekeyS,
                 details: values.detailsS,
                 name: values.nameS,
                 type:'seller',
@@ -118,6 +119,7 @@ export default function Login() {
             if (response.status === 200) {
                 setLogin(true)
                 setPopup("Logged In successfully!")
+                console.log('Type:',values.type)
                 setType(values.type);
                 localStorage.setItem('type',values.type)
                 history.push(from)
@@ -281,6 +283,22 @@ export default function Login() {
 
                             <Form.Row>
                                 <Form.Group as={Col} controlId="15">
+                                    <Form.Label>Private Key</Form.Label>
+                                    <Field
+                                        tabIndex="11"
+                                        type="privatekey"
+                                        placeholder="Private Key"
+                                        name="privatekeyS"
+                                        className="form-styling" />
+                                    <ErrorMessage name="privatekeyS" />
+
+                                </Form.Group>
+
+
+                            </Form.Row>
+
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="16">
                                     <Form.Label>Details</Form.Label>
                                     <Field
                                         tabIndex="12"

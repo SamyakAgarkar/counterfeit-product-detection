@@ -88,6 +88,7 @@ function ProtectedOwnerRoute(comp) {
   const { children, ...rest } = comp
   const login = useRecoilValue(ll);
   const type = useRecoilValue(ti);
+  console.log('TYPE: ', type)
 
   return (
     <Route
